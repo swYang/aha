@@ -9,7 +9,8 @@ window.uexOnload = function(type){
     if(!type){
         $("#header").on('click', function(){
             //uexWindow.evaluatePopoverScript('','','')
-            uexWindow.evaluateScript("", 0, "changeBgColor()");
+            //uexWindow.evaluateScript("", 0, "changeBgColor()");
+            utils.window.evalScript("","changeBgColor()");
         })
     }
 }

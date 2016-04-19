@@ -21,9 +21,10 @@ window.uexOnload = function(type){
         uexWindow.setWindowScrollbarVisible('false');
         uexWindow.preOpenStart();
         
-        
-        uexWindow.openPopover("index_header","0","index_header.html","",0,0,"",headerHeight,parseInt(fontSize),0);
-        uexWindow.openPopover("index_footer","0","index_footer.html","",0,windowHeight - footerHeight,"",footerHeight,parseInt(fontSize),0);
+        utils.window.openPop("index_header","index_header.html",0,0,"",headerHeight,parseInt(fontSize));
+        utils.window.openPop("index_header","index_header.html",0,windowHeight - footerHeight,"",footerHeight,parseInt(fontSize));
+        //uexWindow.openPopover("index_header","0","index_header.html","",0,0,"",headerHeight,parseInt(fontSize),0);
+        //uexWindow.openPopover("index_footer","0","index_footer.html","",0,windowHeight - footerHeight,"",footerHeight,parseInt(fontSize),0);
         
         uexWindow.preOpenFinish();
     }
@@ -40,5 +41,7 @@ function changeBgColor(){
  * 匹配header和footer中的同名事件
  */
 $("#header").on('click', function(){
-    changeBgColor();
+    //uexWindow.evaluatePopoverScript('','','')
+    //uexWindow.evaluateScript("", 0, "changeBgColor()");
+    utils.window.evalScript("","changeBgColor()");
 })
