@@ -79,6 +79,7 @@
     <script src="../js/jquery-weui.js"></script>
     <script src="../js/fastclick.js"></script>
     <script src="../js/underscore.js"></script>
+    <script src="../js/ajax.js"></script>
     <script src="../js/common.js"></script>
     <script>
         /*
@@ -91,7 +92,21 @@
     </script>
     <script src="../js/content.js"></script>
     <script>
-        
+        $.ajax({
+            url: 'http://www.baidu.com/',
+            type: 'GET',
+            //headers: setHeader(),
+            data: {},
+            //contentType: 'application/json',
+            //dataType: 'json',
+            success: function(data) {
+                console.log(data);
+                
+            },
+            error: function(e, err) {
+                //global_err(err);
+            }
+        });
         
         
     </script>
