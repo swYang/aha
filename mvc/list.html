@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html class="um landscape min-width-240px min-width-320px min-width-480px min-width-768px min-width-1024px">
+    <head>
+        <title></title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="target-densitydpi=device-dpi, width=device-width, initial-scale=1, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <script src="../js/rem.js"></script>
+        <link rel="stylesheet" href="../css/font-awesome.min.css">
+        <link rel="stylesheet" href="../css/normalize.css">
+        <link rel="stylesheet" href="../css/vux.css">
+        <link rel="stylesheet" href="../css/style.css">
+        <script src="../js/vue.min.1.0.18.js"></script>
+    </head>
+    <body class="" ontouchstart>
+        <!-- 如果有一页显示全的内容，如全屏居中一张图，关于我们等页面，则可以在page-bottom页面显示 -->
+        <div id="page-bottom" class="bg-page color-page up"></div>
+        <div id="page" class="bg-page color-page">
+            <div id="header" class=" ub ub-hor ub-ac bg-header color-header ubb border-header">
+                <div id="header-left" class="">返回</div>
+                <div id="header-title" class="ub ub-f1 ub-pc">列表</div>
+                <div id="header-right" class="">刷新</div>
+            </div>
+            <div id="content" class="bg-content color-content">
+                
+            </div>
+            <div id="footer" class="bg-content color-footer uhide"  >
+                
+            </div>
+        </div>
+        <script src="../js/zepto.js"></script>
+        <script src="../js/fastclick.js"></script>
+        <script src="../js/common.js"></script>
+        <script src="../components/flexbox/index.js"></script>
+        <script src="../components/flexbox-item/index.js"></script>
+        <script src="../components/group/index.js"></script>
+        <script src="../components/cell/index.js"></script>
+        <script src="../js/content.js"></script>
+        <script>
+            
+            Vue.component('flexbox', vuxFlexbox)
+            Vue.component('flexbox-item', vuxFlexboxItem)
+            // Vue.component('group', vuxGroup)
+            // Vue.component('cell', vuxCell)   
+            new Vue({
+                el: '#page'
+            })
+            
+            
+        </script>
+    </body>
+</html>

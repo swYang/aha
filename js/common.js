@@ -1,6 +1,7 @@
 /*
  * 普适方法
  * 封装常用方法，做到app和web普适
+ * appModel 返回true false 手动设置
  * platform 返回ios android phone pc
  * isAppModel true应用模式，false网页模式
  * app对象，封装uex相关方法
@@ -19,6 +20,8 @@
  *     utils.window.evalPopScript(windName, popName, js) 执行浮动窗口事件
  */
 var utils = {
+    //手设模式
+    appModel: true,
     //判断平台类型
     platform: function(){
         var winPlat = window.navigator.platform;
@@ -199,11 +202,11 @@ var utils = {
  * set
  */
 utils.window = {
-    open: utils.isAppModel() ? utils.app.open : utils.web.open,
-    close: utils.isAppModel() ? utils.app.close : utils.web.close,
-    openPop: utils.isAppModel() ? utils.app.openPop : utils.web.openPop,
-    closePop: utils.isAppModel() ? utils.app.closePop : utils.web.closePop,
-    evalScript: utils.isAppModel() ? utils.app.evalScript : utils.web.evalScript,
-    evalPopScript: utils.isAppModel() ? utils.app.evalPopScript : utils.web.evalPopScript,
+    open: utils.appModel ? utils.app.open : utils.web.open,
+    close: utils.appModel ? utils.app.close : utils.web.close,
+    openPop: utils.appModel ? utils.app.openPop : utils.web.openPop,
+    closePop: utils.appModel ? utils.app.closePop : utils.web.closePop,
+    evalScript: utils.appModel ? utils.app.evalScript : utils.web.evalScript,
+    evalPopScript: utils.appModel ? utils.app.evalPopScript : utils.web.evalPopScript,
 }
 

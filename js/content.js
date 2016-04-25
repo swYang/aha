@@ -1,30 +1,49 @@
 /*
  * content通用方法
  */
-;(function(){
-    var s = window.getComputedStyle(document.querySelector("#page-bottom"), null);
-    window.fontSize = parseInt(s.fontSize);
-    window.headerHeight = parseInt(s.fontSize) * 3;
-    window.footerHeight = parseInt(s.fontSize) * 4;
-    window.windowHeight = parseInt(s.height);
-    window.windowWidth  = parseInt(s.width);
-    $("#header").attr('style', 'height:'+headerHeight+'px;');
-    $("#footer").attr('style', 'height:'+footerHeight+'px;');
-})();
-
 $(function() {
     FastClick.attach(document.body);
 });
+
+;(function(){
+    var s = window.getComputedStyle(document.querySelector("#page-bottom"), null);
+    window.fontSize = parseInt(s.fontSize);
+    window.windowHeight = parseInt(s.height);
+    window.windowWidth  = parseInt(s.width);
+    
+    var h = 0;
+    var f = 0;
+    
+    if(pageContainer.header){
+        h = 3;
+    }
+    if(pageContainer.footer){
+        f = 4;
+    }
+    
+    window.headerHeight = parseInt(s.fontSize) * h;
+    window.footerHeight = parseInt(s.fontSize) * f;
+    
+    $("#header").attr('style', 'height:'+headerHeight+'px;');
+    $("#footer").attr('style', 'height:'+footerHeight+'px;');
+    $("#header").removeClass('uhide');
+    $("#footer").removeClass('uhide');
+})();
 
 window.uexOnload = function(type){
     if(!type){
         uexWindow.setWindowScrollbarVisible('false');
         uexWindow.preOpenStart();
         
-        utils.window.openPop("index_header","index_header.html",0,0,"",headerHeight,parseInt(fontSize));
-        utils.window.openPop("index_header","index_header.html",0,windowHeight - footerHeight,"",footerHeight,parseInt(fontSize));
-        //uexWindow.openPopover("index_header","0","index_header.html","",0,0,"",headerHeight,parseInt(fontSize),0);
-        //uexWindow.openPopover("index_footer","0","index_footer.html","",0,windowHeight - footerHeight,"",footerHeight,parseInt(fontSize),0);
+        var arr = location.href.split('/');
+        var url = arr[arr.length-1];
+        var name = url.split('.')[0];
+        if(pageContainer.header){
+            utils.window.openPop(name + "_header",name + "_header.html",0,0,"",headerHeight,parseInt(fontSize));
+        }
+        if(pageContainer.footer){
+            utils.window.openPop(name + "_footer",name + "_footer.html",0,windowHeight - footerHeight,"",footerHeight,parseInt(fontSize));
+        }
         
         uexWindow.preOpenFinish();
     }
